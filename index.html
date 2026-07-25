@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CeritaKita Publisher | Modern AI Era</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#0ea5e9', // Sky blue
+                            dark: '#38bdf8',
+                            accent: '#8b5cf6' // Violet
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Custom Animations & AI Era Glowing Effects */
+        body { font-family: 'Inter', sans-serif; }
+        
+        .ai-gradient-text {
+            background: linear-gradient(to right, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-[#0b0f19] dark:text-gray-100 transition-colors duration-300 overflow-x-hidden relative">
+
+    <!-- Background Glowing Blobs (AI Aesthetic) -->
+    <div class="glow-blob bg-brand-light w-96 h-96 top-0 left-[-100px] dark:opacity-30 opacity-10"></div>
+    <div class="glow-blob bg-brand-accent w-96 h-96 top-[20%] right-[-100px] dark:opacity-20 opacity-10" style="animation-delay: -5s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/70 dark:bg-[#0b0f19]/80 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <img src="LOGO WEB(1).png" alt="Logo CeritaKita" class="h-10 w-auto object-contain drop-shadow-md">
+                    <span class="font-bold text-xl tracking-tight hidden sm:block">CeritaKita<span class="text-brand-light">.</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-brand-light font-medium transition-colors" data-i18n="navHome">Beranda</a>
+                    <a href="#portfolio" class="hover:text-brand-light font-medium transition-colors" data-i18n="navPortfolio">Karya Kami</a>
+                    <a href="#about" class="hover:text-brand-light font-medium transition-colors" data-i18n="navAbout">Tentang</a>
+                    <a href="#testimonials" class="hover:text-brand-light font-medium transition-colors" data-i18n="navTestimonial">Testimoni</a>
+                    <a href="#contact" class="hover:text-brand-light font-medium transition-colors" data-i18n="navContact">Kontak</a>
+                </div>
+
+                <!-- Controls: Lang & Theme -->
+                <div class="flex items-center gap-4">
+                    <!-- Language Toggle -->
+                    <button id="langToggle" class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-semibold">
+                        <i class="ph ph-globe"></i>
+                        <span id="currentLangText">ID</span>
+                    </button>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+                        <i class="ph ph-moon text-xl dark:hidden block"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-yellow-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 relative">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium mb-8 text-brand-light">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-light opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-light"></span>
+                </span>
+                <span data-i18n="heroBadge">Penerbit Era Digital & AI</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                <span data-i18n="heroTitle1">Membangun Masa Depan</span> <br/>
+                <span class="ai-gradient-text" data-i18n="heroTitle2">Kreator Digital</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto" data-i18n="heroDesc">
+                Kami menyediakan modul belajar mutakhir dan solusi pemasaran digital untuk membantu Anda menguasai teknologi, mendominasi media sosial, dan mengembangkan bisnis di era Artificial Intelligence.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#portfolio" class="px-8 py-4 rounded-full bg-brand-light hover:bg-brand-dark text-white font-semibold transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] flex items-center justify-center gap-2">
+                    <span data-i18n="btnExplore">Jelajahi Karya</span>
+                    <i class="ph ph-arrow-right"></i>
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-full glass-card hover:bg-gray-200 dark:hover:bg-white/10 font-semibold transition-all flex items-center justify-center gap-2" data-i18n="btnConsult">
+                    Konsultasi Gratis
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Karya Section (Modul Belajar) -->
+    <section id="portfolio" class="py-20 bg-white dark:bg-[#0f1423] relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 ai-gradient-text inline-block" data-i18n="portTitle">Modul Belajar Unggulan</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg" data-i18n="portDesc">Koleksi panduan lengkap kami untuk membantu Anda menjadi profesional di dunia digital.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-80 w-full overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
+                        <!-- Disini menggunakan gambar dari unggahan user -->
+                        <img src="1.jpg" alt="Jualan Online Maksimal" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-brand-light font-bold uppercase tracking-wider mb-2" data-i18n="catMarketing">Sosial Media</div>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" data-i18n="book1Title">Jualan Online Maksimal</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2" data-i18n="book1Desc">Panduan lengkap mengoptimalkan Instagram, Facebook, TikTok & WhatsApp untuk pemula hingga profesional.</p>
+                        <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-light hover:text-brand-accent transition-colors">
+                            <span data-i18n="btnDetail">Lihat Detail</span> <i class="ph ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-80 w-full overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
+                        <img src="1ww.png" alt="Membuat Website Pakai Blogger" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-brand-light font-bold uppercase tracking-wider mb-2" data-i18n="catWeb">Website</div>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" data-i18n="book2Title">Website dengan Blogger</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2" data-i18n="book2Desc">Panduan step-by-step membuat website profesional menggunakan Blogger tanpa perlu skill coding.</p>
+                        <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-light hover:text-brand-accent transition-colors">
+                            <span data-i18n="btnDetail">Lihat Detail</span> <i class="ph ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-80 w-full overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
+                        <img src="ChatGPT Image 5 Jun 2026, 19.42.49.png" alt="Buku Panduan Konten Kreator" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-brand-accent font-bold uppercase tracking-wider mb-2" data-i18n="catCreator">Kreator</div>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" data-i18n="book3Title">Panduan Konten Kreator</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2" data-i18n="book3Desc">Tips jitu ngonten di TikTok untuk mendapatkan audiens besar dan cuan melimpah dari nol.</p>
+                        <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-light hover:text-brand-accent transition-colors">
+                            <span data-i18n="btnDetail">Lihat Detail</span> <i class="ph ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-80 w-full overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
+                        <img src="ChatGPT Image 24 Mei 2026, 14.00.08 - Salin(1).jpg" alt="Toko Online di Blogspot" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-brand-accent font-bold uppercase tracking-wider mb-2" data-i18n="catEcom">E-Commerce</div>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" data-i18n="book4Title">Toko Online di Blogspot</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2" data-i18n="book4Desc">Langkah praktis menyulap Blogspot menjadi toko online profesional yang siap menerima pesanan.</p>
+                        <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-light hover:text-brand-accent transition-colors">
+                            <span data-i18n="btnDetail">Lihat Detail</span> <i class="ph ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Info Section -->
+    <section id="about" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="aboutTitle">Mengapa Memilih CeritaKita Publisher?</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed" data-i18n="aboutDesc1">
+                        Di era kecerdasan buatan (AI) yang terus berkembang, memiliki pedoman teknis yang tepat adalah kunci. Karya-karya kami dari PT Web Digital Marketing disusun oleh praktisi berpengalaman untuk memastikan Anda mendapatkan ilmu yang aplikatif, modern, dan menghasilkan.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div class="p-2 rounded-full bg-brand-light/20 text-brand-light"><i class="ph ph-check font-bold"></i></div>
+                            <span class="font-medium" data-i18n="aboutPoint1">Materi Terstruktur & Mudah Dipahami Pemula</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="p-2 rounded-full bg-brand-light/20 text-brand-light"><i class="ph ph-check font-bold"></i></div>
+                            <span class="font-medium" data-i18n="aboutPoint2">Relevan dengan Algoritma & Tren Terkini</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="p-2 rounded-full bg-brand-light/20 text-brand-light"><i class="ph ph-check font-bold"></i></div>
+                            <span class="font-medium" data-i18n="aboutPoint3">Didukung Penuh oleh Pakar Digital Marketing</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-light to-brand-accent rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
+                    <div class="glass-card rounded-2xl p-8 relative border border-white/20 text-center">
+                        <i class="ph ph-cpu text-6xl ai-gradient-text mb-4 inline-block"></i>
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="aiReady">AI-Ready Knowledge</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="aiReadyDesc">Seluruh modul kami dioptimalkan dengan wawasan otomatisasi dan AI untuk mempercepat pertumbuhan bisnis Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="py-20 bg-gray-50 dark:bg-[#0b0f19] relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 ai-gradient-text inline-block" data-i18n="testiTitle">Apa Kata Mereka?</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg" data-i18n="testiDesc">Kisah sukses dari mereka yang telah mempraktikkan modul belajar kami.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Testimoni 1 -->
+                <div class="glass-card p-6 rounded-2xl relative group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <i class="ph-fill ph-quotes text-6xl text-brand-light/10 absolute top-4 right-4 group-hover:text-brand-light/20 transition-colors"></i>
+                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 relative z-10 italic flex-1" data-i18n="testi1Text">"Buku jualan online-nya sangat daging! Omzet saya naik 3x lipat dalam sebulan karena optimasi WhatsApp."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="User 1" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light">
+                        <div>
+                            <h4 class="font-bold text-sm" data-i18n="testi1Name">Andi Syahputra</h4>
+                            <p class="text-xs text-brand-light font-medium" data-i18n="testi1Role">Pebisnis Online</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="glass-card p-6 rounded-2xl relative group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <i class="ph-fill ph-quotes text-6xl text-brand-accent/10 absolute top-4 right-4 group-hover:text-brand-accent/20 transition-colors"></i>
+                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 relative z-10 italic flex-1" data-i18n="testi2Text">"Dulu bingung mau ngonten apa di TikTok, sekarang followers organik nambah drastis berkat panduan di sini."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="User 2" class="w-10 h-10 rounded-full object-cover border-2 border-brand-accent">
+                        <div>
+                            <h4 class="font-bold text-sm" data-i18n="testi2Name">Siti Rahma</h4>
+                            <p class="text-xs text-brand-accent font-medium" data-i18n="testi2Role">Kreator Pemula</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="glass-card p-6 rounded-2xl relative group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <i class="ph-fill ph-quotes text-6xl text-brand-light/10 absolute top-4 right-4 group-hover:text-brand-light/20 transition-colors"></i>
+                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 relative z-10 italic flex-1" data-i18n="testi3Text">"Akhirnya bisa punya toko online sendiri pakai Blogspot tanpa harus bayar jasa web developer yang mahal."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="User 3" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light">
+                        <div>
+                            <h4 class="font-bold text-sm" data-i18n="testi3Name">Budi Santoso</h4>
+                            <p class="text-xs text-brand-light font-medium" data-i18n="testi3Role">Pemilik Toko Retail</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni 4 -->
+                <div class="glass-card p-6 rounded-2xl relative group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <i class="ph-fill ph-quotes text-6xl text-brand-accent/10 absolute top-4 right-4 group-hover:text-brand-accent/20 transition-colors"></i>
+                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 relative z-10 italic flex-1" data-i18n="testi4Text">"Penjelasan cara buat websitenya step-by-step banget. Sangat cocok buat pemula yang gaptek seperti saya."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="User 4" class="w-10 h-10 rounded-full object-cover border-2 border-brand-accent">
+                        <div>
+                            <h4 class="font-bold text-sm" data-i18n="testi4Name">Rina Amelia</h4>
+                            <p class="text-xs text-brand-accent font-medium" data-i18n="testi4Role">Freelancer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-gray-100 dark:bg-[#070a11] py-12 border-t border-gray-200 dark:border-gray-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="LOGO WEB(1).png" alt="Logo CeritaKita" class="h-8 w-auto object-contain">
+                        <span class="font-bold text-xl">CeritaKita<span class="text-brand-light">.</span></span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-i18n="footerDesc">
+                        Publisher terdepan untuk karya digital edukatif, membantu pemula hingga mahir dalam mengarungi dunia digital marketing dan content creation.
+                    </p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="https://www.facebook.com/ceritakitapublisher?locale=id_ID" target="_blank" class="p-2.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-brand-light hover:text-white dark:hover:bg-brand-light dark:hover:text-white transition-all">
+                            <i class="ph ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ceritakitapublisher/" target="_blank" class="p-2.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-brand-light hover:text-white dark:hover:bg-brand-light dark:hover:text-white transition-all">
+                            <i class="ph ph-instagram-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerLinks">Tautan Cepat</h4>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="#home" class="hover:text-brand-light transition-colors">Beranda</a></li>
+                        <li><a href="#portfolio" class="hover:text-brand-light transition-colors">Karya Kami</a></li>
+                        <li><a href="#about" class="hover:text-brand-light transition-colors">Tentang Kami</a></li>
+                        <li><a href="#testimonials" class="hover:text-brand-light transition-colors" data-i18n="navTestimonial">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerContact">Hubungi Kami</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="ph ph-whatsapp text-lg"></i> 
+                            <a href="https://wa.me/6285878976277" class="hover:text-brand-light transition-colors">085878976277</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="ph ph-envelope text-lg"></i> 
+                            <a href="mailto:ceritakitapubliser@gmail.com" class="hover:text-brand-light transition-colors">ceritakitapubliser@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="ph ph-map-pin text-lg"></i> Sleman, DIY
+                        </li>
+                        <li class="pt-2">
+                            <a href="https://ceritakitapublisher.taplink.site/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-brand-light text-brand-light hover:bg-brand-light hover:text-white transition-colors font-medium">
+                                <i class="ph ph-link-simple text-lg"></i> <span data-i18n="footerTaplink">Semua Kontak Kami</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+                &copy; <span id="year"></span> CeritaKita Publisher. <span data-i18n="footerCopy">Hak Cipta Dilindungi.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Fungsionalitas -->
+    <script>
+        // Set tahun footer otomatis
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Fitur Dark/Light Mode
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Cek preferensi awal (default ke dark sesuai desain AI)
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // 2. Fitur Bahasa (Bilingual EN/ID)
+        const langToggleBtn = document.getElementById('langToggle');
+        const currentLangText = document.getElementById('currentLangText');
+        
+        let currentLang = 'id'; // Default
+
+        // Dictionary Terjemahan
+        const translations = {
+            id: {
+                navHome: "Beranda", navPortfolio: "Karya Kami", navAbout: "Tentang", navContact: "Kontak",
+                heroBadge: "Penerbit Era Digital & AI",
+                heroTitle1: "Membangun Masa Depan", heroTitle2: "Kreator Digital",
+                heroDesc: "Kami menyediakan modul belajar mutakhir dan solusi pemasaran digital untuk membantu Anda menguasai teknologi, mendominasi media sosial, dan mengembangkan bisnis di era Artificial Intelligence.",
+                btnExplore: "Jelajahi Karya", btnConsult: "Konsultasi Gratis",
+                portTitle: "Modul Belajar Unggulan", portDesc: "Koleksi panduan lengkap kami untuk membantu Anda menjadi profesional di dunia digital.",
+                catMarketing: "Sosial Media", catWeb: "Website", catCreator: "Kreator", catEcom: "E-Commerce",
+                book1Title: "Jualan Online Maksimal", book1Desc: "Panduan lengkap mengoptimalkan Instagram, Facebook, TikTok & WhatsApp untuk pemula hingga profesional.",
+                book2Title: "Website dengan Blogger", book2Desc: "Panduan step-by-step membuat website profesional menggunakan Blogger tanpa perlu skill coding.",
+                book3Title: "Panduan Konten Kreator", book3Desc: "Tips jitu ngonten di TikTok untuk mendapatkan audiens besar dan cuan melimpah dari nol.",
+                book4Title: "Toko Online di Blogspot", book4Desc: "Langkah praktis menyulap Blogspot menjadi toko online profesional yang siap menerima pesanan.",
+                btnDetail: "Lihat Detail",
+                aboutTitle: "Mengapa Memilih CeritaKita Publisher?",
+                aboutDesc1: "Di era kecerdasan buatan (AI) yang terus berkembang, memiliki pedoman teknis yang tepat adalah kunci. Karya-karya kami dari PT Web Digital Marketing disusun oleh praktisi berpengalaman untuk memastikan Anda mendapatkan ilmu yang aplikatif, modern, dan menghasilkan.",
+                aboutPoint1: "Materi Terstruktur & Mudah Dipahami Pemula",
+                aboutPoint2: "Relevan dengan Algoritma & Tren Terkini",
+                aboutPoint3: "Didukung Penuh oleh Pakar Digital Marketing",
+                aiReady: "AI-Ready Knowledge", aiReadyDesc: "Seluruh modul kami dioptimalkan dengan wawasan otomatisasi dan AI untuk mempercepat pertumbuhan bisnis Anda.",
+                navTestimonial: "Testimoni", testiTitle: "Apa Kata Mereka?", testiDesc: "Kisah sukses dari mereka yang telah mempraktikkan modul belajar kami.",
+                testi1Name: "Andi Syahputra", testi1Role: "Pebisnis Online", testi1Text: "\"Buku jualan online-nya sangat daging! Omzet saya naik 3x lipat dalam sebulan karena optimasi WhatsApp.\"",
+                testi2Name: "Siti Rahma", testi2Role: "Kreator Pemula", testi2Text: "\"Dulu bingung mau ngonten apa di TikTok, sekarang followers organik nambah drastis berkat panduan di sini.\"",
+                testi3Name: "Budi Santoso", testi3Role: "Pemilik Toko Retail", testi3Text: "\"Akhirnya bisa punya toko online sendiri pakai Blogspot tanpa harus bayar jasa web developer yang mahal.\"",
+                testi4Name: "Rina Amelia", testi4Role: "Freelancer", testi4Text: "\"Penjelasan cara buat websitenya step-by-step banget. Sangat cocok buat pemula yang gaptek seperti saya.\"",
+                footerDesc: "Publisher terdepan untuk karya digital edukatif, membantu pemula hingga mahir dalam mengarungi dunia digital marketing dan content creation.",
+                footerLinks: "Tautan Cepat", footerContact: "Hubungi Kami", footerCopy: "Hak Cipta Dilindungi.",
+                footerTaplink: "Semua Kontak Kami"
+            },
+            en: {
+                navHome: "Home", navPortfolio: "Our Works", navAbout: "About", navContact: "Contact",
+                heroBadge: "Digital & AI Era Publisher",
+                heroTitle1: "Building the Future of", heroTitle2: "Digital Creators",
+                heroDesc: "We provide cutting-edge learning modules and digital marketing solutions to help you master technology, dominate social media, and grow your business in the Artificial Intelligence era.",
+                btnExplore: "Explore Works", btnConsult: "Free Consultation",
+                portTitle: "Featured Learning Modules", portDesc: "Our comprehensive collection of guides to help you become a professional in the digital world.",
+                catMarketing: "Social Media", catWeb: "Website", catCreator: "Creator", catEcom: "E-Commerce",
+                book1Title: "Maximize Online Sales", book1Desc: "Complete guide to optimizing Instagram, Facebook, TikTok & WhatsApp from beginner to pro.",
+                book2Title: "Website with Blogger", book2Desc: "Step-by-step guide to building a professional website using Blogger with zero coding skills.",
+                book3Title: "Content Creator Guide", book3Desc: "Proven tips for creating TikTok content to gain massive audience and monetize from scratch.",
+                book4Title: "Online Store on Blogspot", book4Desc: "Practical steps to transform Blogspot into a professional online store ready to take orders.",
+                btnDetail: "View Details",
+                aboutTitle: "Why Choose CeritaKita Publisher?",
+                aboutDesc1: "In the ever-evolving Artificial Intelligence (AI) era, having the right technical guidelines is key. Our works from PT Web Digital Marketing are curated by experienced practitioners ensuring applicable, modern, and profitable knowledge.",
+                aboutPoint1: "Structured & Beginner-Friendly Materials",
+                aboutPoint2: "Relevant to the Latest Algorithms & Trends",
+                aboutPoint3: "Fully Supported by Digital Marketing Experts",
+                aiReady: "AI-Ready Knowledge", aiReadyDesc: "All our modules are optimized with automation and AI insights to accelerate your business growth.",
+                navTestimonial: "Testimonials", testiTitle: "What They Say?", testiDesc: "Success stories from those who have practiced our learning modules.",
+                testi1Name: "Andi Syahputra", testi1Role: "Online Business Owner", testi1Text: "\"The online selling book is so valuable! My revenue tripled in a month due to WhatsApp optimization.\"",
+                testi2Name: "Siti Rahma", testi2Role: "Beginner Creator", testi2Text: "\"I used to be confused about TikTok content, now organic followers increased drastically thanks to this guide.\"",
+                testi3Name: "Budi Santoso", testi3Role: "Retail Store Owner", testi3Text: "\"Finally I can have my own online store using Blogspot without paying an expensive web developer.\"",
+                testi4Name: "Rina Amelia", testi4Role: "Freelancer", testi4Text: "\"The explanation on how to build a website is very step-by-step. Perfect for beginners who aren't tech-savvy.\"",
+                footerDesc: "Leading publisher for educational digital works, helping beginners to advanced users navigate the world of digital marketing and content creation.",
+                footerLinks: "Quick Links", footerContact: "Contact Us", footerCopy: "All Rights Reserved.",
+                footerTaplink: "All Our Contacts"
+            }
+        };
+
+        // Fungsi mengubah teks berdasarkan bahasa yang dipilih
+        function updateLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            currentLangText.textContent = lang.toUpperCase();
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            updateLanguage(currentLang);
+        });
+
+    </script>
+</body>
+</html>
